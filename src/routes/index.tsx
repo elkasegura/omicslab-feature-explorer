@@ -1,0 +1,132 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { DATASETS, MODELS } from "@/lib/datasets";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "About Us — OmicsLab | Unsupervised Feature Selection" },
+      {
+        name: "description",
+        content:
+          "OmicsLab runs multiple unsupervised feature-selection models on high-dimensional omics datasets and validates the selected subset with downstream classifiers.",
+      },
+      { property: "og:title", content: "About Us — OmicsLab" },
+      {
+        property: "og:description",
+        content:
+          "Unsupervised feature selection for omics data with multiple Python models and classifier validation.",
+      },
+    ],
+  }),
+  component: AboutPage,
+});
+
+function AboutPage() {
+  return (
+    <div>
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="grid-backdrop pointer-events-none absolute inset-0" aria-hidden />
+        <div className="relative mx-auto max-w-6xl px-6 py-20">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            Unsupervised Feature Selection
+          </p>
+          <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
+            Find the few variables that explain your omics data.
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            OmicsLab is a minimal application to experiment with <strong>label-free</strong>
+            feature selection models. Pick a dataset (or upload your own CSV), set the number of
+            features and the model runs the selection; afterwards you can validate the subset with
+            a classifier.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/analyses"
+              className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              Go to Analyses
+            </Link>
+            <Link
+              to="/database"
+              className="rounded-md border border-input px-5 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
+            >
+              Browse datasets
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <h2 className="text-2xl font-bold">Description</h2>
+        <div className="mt-6 grid gap-5 md:grid-cols-3">
+          {[
+            {
+              title: "The n ≪ p problem",
+              body: "Omics data has dozens of samples and thousands of variables. Most are noise: feature selection reduces the dimension without losing biological structure.",
+            },
+            {
+              title: "Unsupervised",
+              body: "The models never use the clinical label. They learn the multi-cluster structure of the data and pick the variables that preserve it.",
+            },
+            {
+              title: "Downstream validation",
+              body: "Only after feature selection is a classifier (Random Forest or Gradient Boosting) trained with cross-validation to measure the quality of the subset.",
+            },
+          ].map((card) => (
+            <article key={card.title} className="panel p-6">
+              <h3 className="text-base font-semibold">{card.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-surface">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <h2 className="text-2xl font-bold">App</h2>
+          <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              "Choose a dataset from the repository or upload your CSV (samples × features).",
+              "Set the number of features and the unsupervised model.",
+              "Run it and watch the selection progress.",
+              "Validate the subset with RF or Gradient Boosting and review the metrics and SHAP plot.",
+            ].map((step, i) => (
+              <li key={step} className="panel p-5">
+                <span className="font-mono text-xs text-primary">0{i + 1}</span>
+                <p className="mt-2 text-sm leading-relaxed">{step}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <h2 className="text-2xl font-bold">Info project</h2>
+        <dl className="mt-6 grid gap-6 sm:grid-cols-3">
+          <div>
+            <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              Front-end
+            </dt>
+            <dd className="mt-1 text-sm">React + TanStack Router, Tailwind CSS</dd>
+          </div>
+          <div>
+            <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              Models
+            </dt>
+            <dd className="mt-1 text-sm">
+              {MODELS.map((m) => m.name).join(", ")} — Python implementations in /python, executed by the app server
+            </dd>
+          </div>
+          <div>
+            <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              Datasets
+            </dt>
+            <dd className="mt-1 text-sm">
+              {DATASETS.length} dataset(s) in .mat format under /python/datasets
+            </dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+  );
+}
