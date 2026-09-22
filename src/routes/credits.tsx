@@ -3,13 +3,13 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/credits")({
   head: () => ({
     meta: [
-      { title: "Credits — References and stack | OmicsLab" },
+      { title: "Credits — References and stack | OmicsFeatureSelectionLab" },
       {
         name: "description",
         content:
-          "Academic references for the feature-selection models, data sources and technologies used by OmicsLab.",
+          "Academic references for the feature-selection models, data sources and technologies used by OmicsFeatureSelectionLab.",
       },
-      { property: "og:title", content: "Credits — OmicsLab" },
+      { property: "og:title", content: "Credits — OmicsFeatureSelectionLab" },
       {
         property: "og:description",
         content: "Academic references, datasets and technology stack of the project.",
@@ -85,23 +85,22 @@ function CreditsPage() {
       <section className="mt-12 grid gap-8 sm:grid-cols-2">
         <div>
           <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            Stack
+            Team
           </h2>
           <ul className="mt-3 space-y-1 text-sm">
-            <li>React 19 + TanStack Router (front-end)</li>
-            <li>Tailwind CSS (design system)</li>
-            <li>Python model runtime — NumPy, SciPy, scikit-learn, PyTorch and TensorFlow</li>
-            <li>TanStack server functions — Python bridge, classifiers and SHAP execution</li>
+            <li><b>Project Leader:</b></li>
+            <li>Sabrina Giordano</li>
+            <li><b>Experts in Statistics, Data Science, ML, AI and XAI:</b></li>
+            <li>Carlo Adornetto</li>
+            <li>Elka Segura Sánchez</li>
           </ul>
         </div>
         <div>
           <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            Architecture
+            Aims
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            The browser sends the selected model and dataset to a server function. The server calls
-            the shared Python runner, which resolves the model through a registry and returns one
-            score per feature plus a global ranking.
+            ***
           </p>
         </div>
       </section>

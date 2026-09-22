@@ -4,13 +4,13 @@ import { DATASETS, MODELS } from "@/lib/datasets";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "About Us — OmicsLab | Unsupervised Feature Selection" },
+      { title: "About Us — OmicsFeatureSelectionLab | Unsupervised Feature Selection" },
       {
         name: "description",
         content:
-          "OmicsLab runs multiple unsupervised feature-selection models on high-dimensional omics datasets and validates the selected subset with downstream classifiers.",
+          "OmicsFeatureSelectionLab runs multiple unsupervised feature-selection models on high-dimensional omics datasets and validates the selected subset with downstream classifiers.",
       },
-      { property: "og:title", content: "About Us — OmicsLab" },
+      { property: "og:title", content: "About Us — OmicsFeatureSelectionLab" },
       {
         property: "og:description",
         content:
@@ -31,14 +31,14 @@ function AboutPage() {
             Unsupervised Feature Selection
           </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
-            Find the few variables that explain your omics data.
+            AI-Based Unsupervised Feature Selection for High-Dimensional Omics Data
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            OmicsLab is a minimal application to experiment with <strong>label-free</strong>
+          {/*<p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            OmicsFeatureSelectionLab is a minimal application to experiment with <strong>label-free</strong>
             feature selection models. Pick a dataset (or upload your own CSV), set the number of
             features and the model runs the selection; afterwards you can validate the subset with
             a classifier.
-          </p>
+          </p>*/}
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/analyses"
@@ -105,24 +105,29 @@ function AboutPage() {
         <dl className="mt-6 grid gap-6 sm:grid-cols-3">
           <div>
             <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              Front-end
-            </dt>
-            <dd className="mt-1 text-sm">React + TanStack Router, Tailwind CSS</dd>
-          </div>
-          <div>
-            <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              Models
+              Team
             </dt>
             <dd className="mt-1 text-sm">
-              {MODELS.map((m) => m.name).join(", ")} — Python implementations in /python, executed by the app server
+              <ul className="mt-3 space-y-1 text-sm">
+                <li><b>Project Leader:</b></li>
+                <li>Sabrina Giordano</li>
+                <li><b>Experts in Statistics, Data Science, ML, AI and XAI:</b></li>
+                <li>Carlo Adornetto</li>
+                <li>Elka Segura Sánchez</li>
+              </ul>
             </dd>
           </div>
           <div>
             <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              Datasets
+              Supported by
             </dt>
             <dd className="mt-1 text-sm">
-              {DATASETS.length} dataset(s) in .mat format under /python/datasets
+              <ul className="mt-3 space-y-1 text-sm">
+                <li>Fondazione Anthem-AdvaNced Technology for Human centEred Medicine</li>
+                <li>Universita della Calabria</li>
+                <li>Dipartimento di Economia, Statistica e Finanza</li>
+                <li>Dipartimento di Matematica e Computer Science</li>
+              </ul>
             </dd>
           </div>
         </dl>

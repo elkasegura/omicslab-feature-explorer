@@ -4,13 +4,13 @@ import { DATASETS } from "@/lib/datasets";
 export const Route = createFileRoute("/database")({
   head: () => ({
     meta: [
-      { title: "Database — Omics datasets | OmicsLab" },
+      { title: "Datasets — Omics datasets | OmicsFeatureSelectionLab" },
       {
         name: "description",
         content:
           "Repository of omics datasets in .mat format used in the project, with description, number of samples, features and classes.",
       },
-      { property: "og:title", content: "Database — Omics datasets | OmicsLab" },
+      { property: "og:title", content: "Datasets — Omics datasets | OmicsFeatureSelectionLab" },
       {
         property: "og:description",
         content: "Omics .mat datasets available for feature selection.",

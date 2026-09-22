@@ -14,7 +14,7 @@ import { Toaster } from "@/components/ui/sonner";
 
 const NAV = [
   { to: "/", label: "About Us" },
-  { to: "/database", label: "Database" },
+  { to: "/database", label: "Datasets" },
   { to: "/analyses", label: "Analyses" },
   { to: "/credits", label: "Credits" },
 ] as const;
@@ -27,7 +27,7 @@ function SiteHeader() {
           <span className="grid h-7 w-7 place-items-center rounded-md bg-primary font-mono text-xs font-bold text-primary-foreground">
             Ω
           </span>
-          <span className="font-display text-sm font-bold tracking-tight">OmicsLab</span>
+          <span className="font-display text-sm font-bold tracking-tight">OmicsFeatureSelectionLab</span>
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           {NAV.map((item) => (
@@ -51,7 +51,7 @@ function SiteFooter() {
   return (
     <footer className="border-t border-border py-8">
       <div className="mx-auto max-w-6xl px-6 text-xs text-muted-foreground">
-        OmicsLab — Unsupervised feature selection for high-dimensional omics data.
+        OmicsFeatureSelectionLab — Unsupervised feature selection for high-dimensional omics data.
       </div>
     </footer>
   );
@@ -114,7 +114,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "OmicsLab — Unsupervised Feature Selection" },
+      { title: "OmicsFeatureSelectionLab — Unsupervised Feature Selection" },
       {
         name: "description",
         content:

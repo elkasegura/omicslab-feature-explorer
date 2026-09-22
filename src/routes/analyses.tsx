@@ -9,13 +9,13 @@ import { classifyWithFeatures, selectFeatures } from "@/lib/analysis.functions";
 export const Route = createFileRoute("/analyses")({
   head: () => ({
     meta: [
-      { title: "Analyses — Feature selection models | OmicsLab" },
+      { title: "Analyses — Feature selection models | OmicsFeatureSelectionLab" },
       {
         name: "description",
         content:
           "Pick an omics dataset or upload your own CSV, run one of the available unsupervised feature-selection models, then validate the selected subset and inspect SHAP values.",
       },
-      { property: "og:title", content: "Analyses — OmicsLab" },
+      { property: "og:title", content: "Analyses — OmicsFeatureSelectionLab" },
       {
         property: "og:description",
         content: "Run unsupervised feature selection and validate the selected subset.",
