@@ -32,7 +32,12 @@ function AboutPage() {
           </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
             AI-Based Unsupervised Feature Selection for High-Dimensional Omics Data
-          </h1>
+          </h1><p>This project aims to provide a unified platform that brings together
+            unsupervised feature-selection methods reported and validated in the
+            scientific literature. The platform is designed to support technical
+            and research personnel in the analysis of high-dimensional omics data,
+            facilitating dimensionality reduction while preserving the most
+            informative features for downstream analysis.</p>
           {/*<p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
             OmicsFeatureSelectionLab is a minimal application to experiment with <strong>label-free</strong>
             feature selection models. Pick a dataset (or upload your own CSV), set the number of
