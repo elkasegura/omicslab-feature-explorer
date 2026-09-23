@@ -32,7 +32,8 @@ function AboutPage() {
           </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
             AI-Based Unsupervised Feature Selection for High-Dimensional Omics Data
-          </h1><p>This project aims to provide a unified platform that brings together
+          </h1><p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            This project aims to provide a unified platform that brings together
             unsupervised feature-selection methods reported and validated in the
             scientific literature. The platform is designed to support technical
             and research personnel in the analysis of high-dimensional omics data,
@@ -56,51 +57,120 @@ function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="text-2xl font-bold">Description</h2>
-        <p className="mt-5 text-base leading-relaxed">OmicsFeatureSelectionLab is a minimal application to experiment with <strong>label-free </strong>
-            feature selection models. Pick a dataset (or upload your own CSV), set the number of
-            features and the model runs the selection; afterwards you can validate the subset with
-            a classifier (Random Forest or Gradient Boosting).
+        <div className="w-full">
+          <h2 className="mt-2 text-3xl font-bold">
+            Description
+          </h2>
+
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+            OmicsFeatureSelectionLab provides a unified environment for exploring
+            label-free feature selection in high-dimensional omics data. Users can
+            select a reference dataset or upload their own data, apply an
+            unsupervised feature selection method, and subsequently evaluate the
+            selected subset using tree-based predictive models.
           </p>
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
-          {[
-            {
-              title: "The n ≪ p problem",
-              body: "Omics datasets are typically characterized by a limited number of samples and a very large number of variables. Since many of these variables may be noisy or redundant, feature selection is essential to reduce dimensionality while preserving the underlying biological structure",
-            },
-            {
-              title: "Unsupervised",
-              body: "The models operate without using the clinical labels. Instead, they learn the intrinsic multi-cluster structure of the data and identify the variables that best preserve it. The study considers established unsupervised feature selection (UFS) methods from the literature, together with a recent approach, reflecting the continuous development of this rapidly evolving research field.",
-            },
-            {
-              title: "Downstream validation",
-              body: "Only after feature selection are tree-based classifiers, namely Random Forest and Gradient Boosting, trained using cross-validation. Beyond evaluating the predictive quality of the reduced feature subset, these models are used to assess the relative contribution of the selected genes/features. Their tree-based structure also facilitates the application of Explainable AI (XAI) techniques, providing an interpretable representation of the variables that contribute most strongly to the classification outcome.",
-            },
-          ].map((card) => (
-            <article key={card.title} className="panel p-6">
-              <h3 className="text-base font-semibold">{card.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.body}</p>
-            </article>
-          ))}
+        </div>
+
+        <div className="mt-12 grid gap-10 md:grid-cols-3">
+          <div className="border-t border-border pt-6">
+            <span className="font-mono text-sm font-semibold text-cyan-700">
+              01
+            </span>
+
+            <h3 className="mt-3 text-lg font-semibold">
+              High-dimensional data
+            </h3>
+
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Omics datasets typically contain far more variables than samples.
+              Feature selection reduces this dimensionality by identifying a compact
+              subset of informative and non-redundant features.
+            </p>
+          </div>
+
+          <div className="border-t border-border pt-6">
+            <span className="font-mono text-sm font-semibold text-cyan-700">
+              02
+            </span>
+
+            <h3 className="mt-3 text-lg font-semibold">
+              Unsupervised feature selection
+            </h3>
+
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Clinical labels are not used during feature selection. Instead, UFS
+              methods aim to preserve the intrinsic structure of the data. The
+              platform includes established methods from the literature together
+              with more recent approaches.
+            </p>
+          </div>
+
+          <div className="border-t border-border pt-6">
+            <span className="font-mono text-sm font-semibold text-cyan-700">
+              03
+            </span>
+
+            <h3 className="mt-3 text-lg font-semibold">
+              Validation & interpretation
+            </h3>
+
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              After feature selection, Random Forest and XGBoost are used to evaluate
+              the predictive quality of the reduced subset. Explainable AI methods,
+              including SHAP, are then used to analyse feature-level contributions
+              to model predictions.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="border-t border-border bg-surface">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="text-2xl font-bold">App</h2>
-          <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              "Choose a dataset from the repository or upload your CSV (samples × features).",
-              "Set the number of features and the unsupervised model.",
-              "Run it and watch the selection progress.",
-              "Validate the subset with RF or Gradient Boosting and review the metrics and SHAP plot.",
-            ].map((step, i) => (
-              <li key={step} className="panel p-5">
-                <span className="font-mono text-xs text-primary">0{i + 1}</span>
-                <p className="mt-2 text-sm leading-relaxed">{step}</p>
-              </li>
-            ))}
-          </ol>
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="mb-10">
+          <h2 className="mt-2 text-3xl font-bold">
+            How it works
+          </h2>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-4">
+          {[
+            {
+              number: "01",
+              title: "Select your data",
+              text: "Choose a dataset from the repository or upload your own CSV file.",
+            },
+            {
+              number: "02",
+              title: "Configure the analysis",
+              text: "Select the number of features and the unsupervised feature selection method.",
+            },
+            {
+              number: "03",
+              title: "Run feature selection",
+              text: "Launch the analysis and follow the feature selection process.",
+            },
+            {
+              number: "04",
+              title: "Validate & interpret",
+              text: "Evaluate the selected subset using RF or XGBoost and explore its SHAP-based interpretation.",
+            },
+          ].map((step) => (
+            <div
+              key={step.number}
+              className="relative border-t border-border pt-6"
+            >
+              <span className="font-mono text-sm font-semibold text-cyan-700">
+                {step.number}
+              </span>
+
+              <h3 className="mt-4 text-base font-semibold">
+                {step.title}
+              </h3>
+
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {step.text}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
