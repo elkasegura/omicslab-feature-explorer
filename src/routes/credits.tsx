@@ -78,26 +78,42 @@ const REFERENCES = [
 {/* Esta función renderiza la página de créditos, incluyendo las referencias académicas y la información del equipo del proyecto */}
 function CreditsPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-14">
+    <div className="mx-auto max-w-6xl px-6 py-14">
       <h1 className="text-3xl font-bold">Credits</h1>
 
       <section className="mt-10">
         <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
           References
         </h2>
+
         <ul className="panel p-5">
           {REFERENCES.map((r) => (
             <li key={r.title}>
               <p className="font-semibold">{r.title}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{r.authors}</p>
-              <p className="mt-2 text-sm">{r.note} DOI: <a href={`https://doi.org/${r.doi}`} className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">{r.doi}</a></p>
+
+              <p className="mt-1 text-sm text-muted-foreground">
+                {r.authors}
+              </p>
+
+              <p className="mt-2 text-sm">
+                {r.note} DOI:{" "}
+                <a
+                  href={`https://doi.org/${r.doi}`}
+                  className="text-blue-500 underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {r.doi}
+                </a>
+              </p>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="mt-12 grid gap-8 sm:grid-cols-2">
-        <div>
+      <section className="mt-12 flex flex-col gap-10 sm:flex-row sm:justify-between">
+        {/* LEFT */}
+        <div className="sm:w-[45%]">
           <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
             Team
           </h2>
@@ -116,19 +132,25 @@ function CreditsPage() {
           </ul>
         </div>
 
-        <div>
+        {/* RIGHT */}
+        <div className="sm:w-[45%]">
           <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
             Aims
           </h2>
 
-          <p className="mt-3 centered text-sm leading-relaxed text-muted-foreground">
-            This project provides a unified platform for validated Unsupervised Feature Selection methods, supporting high-dimensional omics data analysis while preserving the most informative features. XAI techniques are used to improve interpretability, together with downstream models such as Random Forest and XGBoost
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            This project provides a unified platform for validated Unsupervised
+            Feature Selection methods, supporting the analysis of
+            high-dimensional omics data while preserving the most informative
+            features. Explainable AI (XAI) techniques are integrated with
+            downstream tree-based models, including Random Forest and XGBoost,
+            to improve model interpretability and provide insight into the
+            contribution of the selected features.
           </p>
         </div>
       </section>
     </div>
   );
 }
-
 
 

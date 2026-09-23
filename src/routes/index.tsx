@@ -38,12 +38,6 @@ function AboutPage() {
             and research personnel in the analysis of high-dimensional omics data,
             facilitating dimensionality reduction while preserving the most
             informative features for downstream analysis.</p>
-          {/*<p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            OmicsFeatureSelectionLab is a minimal application to experiment with <strong>label-free</strong>
-            feature selection models. Pick a dataset (or upload your own CSV), set the number of
-            features and the model runs the selection; afterwards you can validate the subset with
-            a classifier.
-          </p>*/}
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/analyses"
@@ -63,19 +57,24 @@ function AboutPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="text-2xl font-bold">Description</h2>
+        <p className="mt-5 text-base leading-relaxed">OmicsFeatureSelectionLab is a minimal application to experiment with <strong>label-free </strong>
+            feature selection models. Pick a dataset (or upload your own CSV), set the number of
+            features and the model runs the selection; afterwards you can validate the subset with
+            a classifier (Random Forest or Gradient Boosting).
+          </p>
         <div className="mt-6 grid gap-5 md:grid-cols-3">
           {[
             {
               title: "The n ≪ p problem",
-              body: "Omics data has dozens of samples and thousands of variables. Most are noise: feature selection reduces the dimension without losing biological structure.",
+              body: "Omics datasets are typically characterized by a limited number of samples and a very large number of variables. Since many of these variables may be noisy or redundant, feature selection is essential to reduce dimensionality while preserving the underlying biological structure",
             },
             {
               title: "Unsupervised",
-              body: "The models never use the clinical label. They learn the multi-cluster structure of the data and pick the variables that preserve it.",
+              body: "The models operate without using the clinical labels. Instead, they learn the intrinsic multi-cluster structure of the data and identify the variables that best preserve it. The study considers established unsupervised feature selection (UFS) methods from the literature, together with a recent approach, reflecting the continuous development of this rapidly evolving research field.",
             },
             {
               title: "Downstream validation",
-              body: "Only after feature selection is a classifier (Random Forest or Gradient Boosting) trained with cross-validation to measure the quality of the subset.",
+              body: "Only after feature selection are tree-based classifiers, namely Random Forest and Gradient Boosting, trained using cross-validation. Beyond evaluating the predictive quality of the reduced feature subset, these models are used to assess the relative contribution of the selected genes/features. Their tree-based structure also facilitates the application of Explainable AI (XAI) techniques, providing an interpretable representation of the variables that contribute most strongly to the classification outcome.",
             },
           ].map((card) => (
             <article key={card.title} className="panel p-6">
@@ -107,31 +106,44 @@ function AboutPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="text-2xl font-bold">Info project</h2>
-        <dl className="mt-6 grid gap-6 sm:grid-cols-3">
-          <div>
+
+        <dl className="mt-6 grid gap-10 sm:grid-cols-2">
+          {/* LEFT */}
+          <div className="justify-self-start">
             <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Team
             </dt>
-            <dd className="mt-1 text-sm">
+
+            <dd className="mt-2 text-sm">
               <ul className="mt-3 space-y-1 text-sm">
                 <li><b>Project Leader:</b></li>
                 <li>Sabrina Giordano</li>
-                <li><b>Experts in Statistics, Data Science, ML, AI and XAI:</b></li>
+
+                <li className="pt-3">
+                  <b>Experts in Statistics, Data Science, ML, AI and XAI:</b>
+                </li>
                 <li>Carlo Adornetto</li>
                 <li>Elka Segura Sánchez</li>
               </ul>
             </dd>
           </div>
-          <div>
+
+          {/* RIGHT */}
+          <div className="justify-self-end text-justify max-w-md">
             <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Supported by
             </dt>
-            <dd className="mt-1 text-sm">
+
+            <dd className="mt-2 text-sm">
               <ul className="mt-3 space-y-1 text-sm">
-                <li>Fondazione Anthem-AdvaNced Technology for Human centEred Medicine</li>
-                <li>Universita della Calabria</li>
-                <li>Dipartimento di Economia, Statistica e Finanza</li>
-                <li>Dipartimento di Matematica e Computer Science</li>
+                <li>
+                  Fondazione ANTHEM – AdvaNced Technology for Human centEred Medicine
+                </li>
+                <li>Università della Calabria</li>
+                <li>
+                  Dipartimento di Economia, Statistica e Finanza “Giovanni Anania”
+                </li>
+                <li>Dipartimento di Matematica e Informatica</li>
               </ul>
             </dd>
           </div>
