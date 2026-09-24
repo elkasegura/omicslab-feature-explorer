@@ -74,13 +74,17 @@ export async function runFeatureSelection(input: {
   const started = Date.now();
   const { dataset, nFeatures } = input;
   const result = await runPythonFeatureSelection({
-    model: input.model,
-    X: dataset.X,
-    y: dataset.y,
-    nFeatures,
-    nClusters: input.nClusters,
-    epochs: input.epochs,
-    params: input.modelParams,
+  model: input.model,
+  X: dataset.X,
+  y: dataset.y,
+  nFeatures,
+  nClusters: input.nClusters,
+  ...(input.epochs !== undefined
+    ? { epochs: input.epochs }
+    : {}),
+  ...(input.modelParams !== undefined
+    ? { params: input.modelParams }
+    : {}),
   });
 
   const selected = result.ranking.slice(0, nFeatures).map((index) => ({

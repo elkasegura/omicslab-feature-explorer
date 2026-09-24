@@ -55,9 +55,16 @@ export const selectFeatures = createServerFn({ method: "POST" })
       datasetName: name,
       model: data.model,
       nFeatures: Math.min(data.nFeatures, dataset.X[0]!.length),
-      nClusters: Math.min(data.nClusters, Math.max(2, dataset.X.length - 1)),
-      epochs: data.epochs,
-      modelParams: data.modelParams,
+      nClusters: Math.min(
+        data.nClusters,
+        Math.max(2, dataset.X.length - 1),
+      ),
+      ...(data.epochs !== undefined
+        ? { epochs: data.epochs }
+        : {}),
+      ...(data.modelParams !== undefined
+        ? { modelParams: data.modelParams }
+        : {}),
     });
   });
 

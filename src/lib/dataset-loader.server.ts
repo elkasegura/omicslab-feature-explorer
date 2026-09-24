@@ -17,7 +17,7 @@ function resolveDatasetRunner(): string {
 }
 
 export function loadMatDataset(file: string): Promise<LoadedMatDataset> {
-  const python = process.env.OMICSLAB_PYTHON ?? process.env.PYTHON ?? "python3";
+  const python = process.env["OMICSLAB_PYTHON"] ?? process.env["PYTHON"] ?? "python3";
   const runner = resolveDatasetRunner();
 
   return new Promise((resolve, reject) => {
