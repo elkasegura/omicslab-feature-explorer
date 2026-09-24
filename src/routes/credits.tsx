@@ -89,7 +89,7 @@ function CreditsPage() {
         <ul className="panel p-5">
           {REFERENCES.map((r) => (
             <li key={r.title}>
-              <p className="font-semibold">{r.title}</p>
+              <p className="rounded bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground uppercase">{r.title}</p>
 
               <p className="mt-1 text-sm text-muted-foreground">
                 {r.authors}

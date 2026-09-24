@@ -25,11 +25,7 @@ function DatabasePage() {
     <div className="mx-auto max-w-6xl px-6 py-14">
       <h1 className="text-3xl font-bold">Database</h1>
       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-        Omics datasets considered in this project. The original files live in the{" "}
-        <code className="rounded bg-secondary px-1.5 py-0.5 font-mono text-xs">
-          python/datasets
-        </code>{" "}
-        folder in <strong>.mat</strong> format.
+        Omics datasets considered in this project.
       </p>
 
       <div className="mt-8 space-y-5">
@@ -40,26 +36,26 @@ function DatabasePage() {
                 <h2 className="text-lg font-semibold">{d.name}</h2>
                 <p className="mt-0.5 font-mono text-xs text-primary">{d.omics}</p>
               </div>
-              <code className="rounded bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground">
+              {/*<code className="rounded bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground">
                 {d.file}
-              </code>
+              </code>*/}
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{d.description}</p>
             <dl className="mt-5 grid grid-cols-3 gap-4 border-t border-border pt-4 text-sm">
               <div>
-                <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                <dt className="rounded bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground uppercase">                     
                   Samples
                 </dt>
                 <dd className="mt-1 font-semibold">{d.samples}</dd>
               </div>
               <div>
-                <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                <dt className="rounded bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground uppercase">
                   Features
                 </dt>
                 <dd className="mt-1 font-semibold">{d.features}</dd>
               </div>
               <div>
-                <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                <dt className="rounded bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground uppercase">
                   Classes
                 </dt>
                 <dd className="mt-1 font-semibold">{d.classes}</dd>
