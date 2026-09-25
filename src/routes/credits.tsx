@@ -32,6 +32,17 @@ export const Route = createFileRoute("/credits")({
 {/* Aqui se declara un array con las referencias académicas utilizadas en el proyecto */}
 const REFERENCES = [
   {
+  title:
+    "Genes Selection Using Deep Learning and Explainable Artificial Intelligence for Chronic Lymphocytic Leukemia Predicting the Need and Time to Therapy",
+  year: "2023",
+  authors:
+    "F. Morabito, C. Adornetto, P. Monti, A. Amaro, F. Reggiani, M. Colombo, Y. Rodriguez-Aldana, G. Tripepi, G. D’Arrigo, C. Vener, F. Torricelli, T. Rossi, A. Neri, M. Ferrarini, G. Cutrona, M. Gentile, G. Greco",
+  journal: "Frontiers in Oncology",
+  volume: "13",
+  article: "1198992",
+  doi: "10.3389/fonc.2023.1198992",
+  },
+  {
     title: "Unsupervised Feature Selection for Multi-Cluster Data",
     authors: "Deng Cai, Chiyuan Zhang, Xiaofei He — KDD 2010",
     note: "MCFS.",
@@ -73,13 +84,88 @@ const REFERENCES = [
     note: "SMLAE.",
     doi: "10.1016/j.ipm.2024.103923",
   },
+  
 ];
+
+const projectContributions = [
+  {
+    title:
+      "Artificial Intelligence in Healthcare: Advances in Geriatric and Genomic Applications",
+    authors: "Elka Segura Sánchez, Sabrina Giordano, Carlo Adornetto, Danilo Lofaro, and Luca Soraci",
+    year: "2026",
+    type: "Contributed session",
+    event:
+      "Ital-IA 2026: 6th National Conference on Artificial Intelligence",
+    extra: "Organized by CINI",
+    location: "Rome, Italy",
+    date: "June 18–19, 2026",
+  },
+  {
+    title:
+      "AI-Based Unsupervised Feature Selection for High-Dimensional Omics Data: FesCAE",
+    authors: "Elka Segura Sánchez, Sabrina Giordano, and Carlo Adornetto",
+    year: "2026",
+    type: "Contributed session",
+    event: "3rd ANTHEM Scientific Meeting on Project Progress",
+    location: "Politecnico di Milano, Campus Bovisa, Milan, Italy",
+    date: "April 13–14, 2026",
+  },
+  {
+    title:
+      "Evaluating Unsupervised Feature Selection for Redundancy in Genomic Data",
+    authors: "Elka Segura Sánchez, Sabrina Giordano, and Carlo Adornetto",
+    year: "2026",
+    type: "Contributed session",
+    event:
+      "SDS 2026: Fourth Conference of the Statistics and Data Science Section of the Italian Statistical Society",
+    location: "Caserta, Italy",
+    date: "March 30–April 1, 2026",
+  },
+  
+];
+
 
 {/* Esta función renderiza la página de créditos, incluyendo las referencias académicas y la información del equipo del proyecto */}
 function CreditsPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-14">
       <h1 className="text-3xl font-bold">Credits</h1>
+
+      <section className="mt-10">
+        <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+          Work developed during the project:
+        </h2>
+        <ul className="panel p-5">
+          {projectContributions.map((c) => (
+            <li key={c.title} className="mb-4">
+              <p className="rounded bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground uppercase">{c.title}</p>
+              <p className="mt-1 text-sm">
+                <b>Authors:</b> {c.authors}
+              </p>
+              <p className="mt-1 text-sm">
+                <b>Year:</b> {c.year}
+              </p>
+              <p className="mt-1 text-sm">
+                <b>Type:</b> {c.type}
+              </p>
+              <p className="mt-1 text-sm">
+                <b>Event:</b> {c.event}
+              </p>
+              {c.extra && (
+                <p className="mt-1 text-sm">
+                  <b>Extra:</b> {c.extra}
+                </p>
+              )}
+              <p className="mt-1 text-sm">
+                <b>Location:</b> {c.location}
+              </p>
+              <p className="mt-1 text-sm">
+                <b>Date:</b> {c.date}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <section className="mt-10">
         <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
