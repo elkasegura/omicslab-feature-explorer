@@ -1,6 +1,8 @@
 import type { ClassifierId } from "./datasets";
 import { FIXED_SEED } from "./reproducibility";
 
+/*Esto esta TypeScript */
+
 /**
  * Lightweight classifiers used to validate the selected feature subset.
  * Both classifiers support binary and multiclass targets. Random Forest uses

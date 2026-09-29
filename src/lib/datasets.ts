@@ -281,7 +281,7 @@ const MODEL_DEFINITIONS = {
   },
   rfae: {
     name: "RFAE",
-    full: "Robust Feature AutoEncoder",
+    full: "Robust Fractal AutoEncoder",
     description:
       "Learns trainable feature weights, progressively reduces the active feature window and reconstructs the input.",
     usesClusters: false,

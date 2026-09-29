@@ -245,9 +245,10 @@ function AnalysesPage() {
                   </option>
                 ))}
               </select>
-              <span className="mt-2 block text-xs leading-relaxed text-muted-foreground">
+              {/*<span className="mt-2 block text-xs leading-relaxed text-muted-foreground">
 {selectedModel.description}
               </span>
+              */}
             </label>
 
             {selectedModel.usesClusters && (
@@ -392,10 +393,10 @@ function AnalysesPage() {
 
               <div className="panel p-6">
                 <h2 className="text-lg font-semibold">Classification model</h2>
-                <p className="mt-1 text-sm text-muted-foreground">
+                {/*<p className="mt-1 text-sm text-muted-foreground">
                   Validate the subset with stratified cross-validation (up to 5 folds). Binary and
                   multiclass targets are supported; Precision, Recall and F1 use macro averaging.
-                </p>
+                </p>*/}
                 <div className="mt-4 flex flex-wrap items-center gap-3">
                   <select
                     value={classifier}
@@ -446,8 +447,8 @@ function AnalysesPage() {
                       ))}
                     </div>
                     <p className="mt-3 font-mono text-xs text-muted-foreground">
-                      {classification.data.classes.length} classes · {classification.data.folds} folds ·
-                      macro-averaged Precision / Recall / F1
+                      {classification.data.classes.length} classes {/*· {classification.data.folds} folds ·
+                      macro-averaged Precision / Recall / F1*/}
                     </p>
                   </>
                 )}
